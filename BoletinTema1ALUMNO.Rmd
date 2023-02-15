@@ -294,12 +294,19 @@ b.  Repite el apartado anterior, pero obteniendo un modelo para cada una de las 
 
 ```{r}
 
+#Diagrama de dispersión global.
+plot(cabbages$VitC, cabbages$HeadWt)
 
 
-
-
-
-
+#Diagrama de dispersión etiquetando según un factor.
+plot(cabbages$VitC, cabbages$HeadWt, pch=c(6,16)[cabbages$Cult])
+legend(x="topright",legend=c("Cult = c39","Insul = c52"), pch=c(6,16))
+# Planteamos 2 modelos lineales, uno para los datos de cada factor
+Model1 <- lm(cabbages$VitC~cabbages$HeadWt, data= cabbages, subset= which(cabbages$Cult=="c39"))
+Model2 <- lm(cabbages$VitC~cabbages$HeadWt, data= cabbages, subset= which(cabbages$Cult=="c39"))
+# Representamos las rectas correspondientes a cada modelo lineal
+abline(Model1, lty=2)
+abline(Model2)
 
 
 
@@ -314,6 +321,12 @@ b.  Repite el apartado anterior, pero obteniendo un modelo para cada una de las 
 c.  Usa **summary** con cada uno de los modelos obtenidos y observa **Coefficients**. Dado que hemos planteado un modelo $y=mx+n$, donde $y=VitC$ y $x=HeadWt$. La función **lm** nos permite obtener **(Intercept)**; **n** y la pendiente **HeadWt**; **m** (además de otros parámetros adicionales que evalúan la caracterísiticas del modelo). Observa que en todos los casos, la pendiene es negativa indicando que las calabazas de más peso contienen menos vitamina C. No te preocupes por el resto de parámetros del modelo, por el momento.
 
 ```{r}
+
+summary(Model1)
+summary(Model2)
+lm(Model1)
+lm(Model2)
+
 
 
 

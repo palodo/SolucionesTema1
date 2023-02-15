@@ -240,7 +240,21 @@ qqPlot(cabbages$VitC)
 
 ```{r}
 
+c<-cabbages
 
+
+hist(cabbages$VitC[cabbages$Cult == "c39"], 
+     main = "Histograma del contenido de vitamina C para la variedad c39", 
+     xlab = "Contenido de vitamina C", 
+     col = "green",
+     breaks = 10)
+hist(cabbages$VitC[cabbages$Cult == "c52"], 
+     main = "Histograma del contenido de vitamina C para la variedad c52", 
+     xlab = "Contenido de vitamina C", 
+      col="yellow", 
+     breaks = 10, add=TRUE, alpha=(0.5))
+
+# si que hay diferencia
 
 ```
 

@@ -180,10 +180,11 @@ qqPlot(log(Animals$brain))
 
     ```{r}
 
+    libReturn<-library()
 
-
-
-
+    head(libReturn$results, 5)
+    length(libReturn$results[, 1]) #todas las filas, primera columna(título)
+    #184 librerias
 
 
 

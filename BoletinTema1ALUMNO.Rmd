@@ -206,7 +206,7 @@ dim(cabbages)
 tail(cabbages)
 str(cabbages)
 #b8
-is.na(cabbages)
+any(is.na(cabbages))
 colSums(sapply(cabbages, is.na))
 
 #c
@@ -214,7 +214,7 @@ head(Chile)
 dim(Chile)
 tail(Chile)
 str(Chile)
-is.na(Chile)
+any(is.na(Chile))
 colSums(sapply(Chile, is.na))
 
 #d

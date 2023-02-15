@@ -1,7 +1,7 @@
 ---
 title: "Boletín Tema 1"
 subtitle: Tratamiento de Datos. Grado en Ciencia de Datos- UV
-author: "Marcelino Martínez"
+author: "Pablo López Domínguez"
 date:  "`r Sys.Date()`"  #Pondría la fecha del día actual
 params:
   lang: ES
@@ -92,21 +92,36 @@ b.  Usa las funciones **dim, head, tail, str** para una primera visión de los c
 c.  Muestra los nombres de las filas y las columnas (**rownames**, **colnames**)
 
 ```{r}
+library(MASS)
+library(robustbase)
+Mammals<-mammals
+Animals<-Animals2
+summary(Mammals)
+summary(Animals)
+
+#A
+  #Mammals= a data frame with average brain and body weights for 62 species of land mammals.
+  #Animals= Average brain and body weights for 28 species of land animals.
+
+#B
+dim(Mammals)
+head(Mammals)
+tail(Mammals)
+str(Mammals)
+
+dim(Animals)
+head(Animals)
+tail(Animals)
+str(Animals)
+
+#C
+
+rownames(Mammals)
+colnames(Mammals)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+rownames(Animals)
+colnames(Animals)
 
 
 ```
@@ -115,7 +130,7 @@ d.  Usa la función **intersect** y almacena en la variable *commonAnimals* los 
 
 ```{r}
 
-
+commonAnimals<- intersect(rownames(Mammals), rownames(Animals))
 
 
 
@@ -125,7 +140,13 @@ d.  Usa la función **intersect** y almacena en la variable *commonAnimals* los 
 e.  Usa **setdiff** para averiguar qué animales no están en ambos conjuntos. ¿Cuántos son ?. ¿Qué tipo de animales son?
 
 ```{r}
+diferentes1<-setdiff(rownames(Mammals), rownames(Animals))
+diferentes1
+diferentes2<-setdiff(rownames(Animals), rownames(Mammals))
+diferentes2
 
+total<- c(diferentes1, diferentes2)
+total
 
 
 
@@ -136,14 +157,6 @@ e.  Usa **setdiff** para averiguar qué animales no están en ambos conjuntos. �
 e.  Determina las diferencia entre los animales que no aparecen en ambos conjuntos.
 
 ```{r}
-
-
-
-
-
-
-
-
 
 
 
